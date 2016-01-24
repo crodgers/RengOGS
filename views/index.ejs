@@ -1,0 +1,90 @@
+<DOCTYPE html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="manifest"  href="manifest.json">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="OGS Follow Notifier">
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,400italic'
+    	  rel='stylesheet' type='text/css'>
+
+    <script src="/bower_components/webcomponentsjs/webcomponents.min.js" 
+    		type="text/javascript" charset="utf-8" async defer></script>
+
+    <script type="text/javascript" src="/js/scripts.js"></script>
+
+	<link rel="import" href="/bower_components/paper-toolbar/paper-toolbar.html">
+	<link rel="import" href="/bower_components/paper-material/paper-material.html">
+	<link rel="import" href="/bower_components/paper-dialog/paper-dialog.html">
+	<link rel="import" href="/bower_components/paper-input/paper-input.html">
+	<link rel="import" href="/bower_components/iron-form/iron-form.html">
+	<link rel="import" href="/bower_components/neon-animation/neon-animations.html">
+	<link rel="import" href="/bower_components/paper-button/paper-button.html">
+	<link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html">
+	<link rel="import" href="/bower_components/iron-icons/iron-icons.html">
+
+    <link rel="stylesheet" type="text/css" href="/styles/styles.css">
+
+	<title><%= title %></title>
+
+	<style is="custom-style">
+		paper-toolbar {
+			--paper-toolbar-background: #673AB7
+;		}
+
+		.spacer {
+			@apply(--layout-flex);
+		}
+
+		#login_button {
+			background-color: #536DFE;
+		}
+
+		#submit_login {
+			background-color: #536DFE;
+			color: white;
+		}
+
+		paper-input {
+			display: block;
+		}
+
+		paper-dialog {
+			width: 40%;
+		}
+
+		@media(max-width:700px) {
+			paper-dialog {
+				width: 100%;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<template is="dom-bind" id="app_tmpl">
+		<paper-toolbar>
+		<span class="toolbar_title">Notify.gs</span>
+		<span class="spacer"></span>
+			<paper-button raised data-dialog="animated" id="login_button">Login</paper-button>
+		</paper-toolbar>
+		<div class="welcomeText">
+			<h1><%= title%></h1>
+			<p>This app will send you push notifications from OGS.</p>
+		</div>
+		<paper-dialog id="index_login_dialog" entry-animation="scale-up-animation"
+		 exit-animation="fade-out-animation" with-backdrop>
+			<h2>Login</h2>
+			<form is="iron-form" action="" method="post" accept-charset="utf-8">
+			<paper-input label="OGS Username"></paper-input>
+			<paper-input label="OGS application password"></paper-input>
+			</form>
+			<div class="buttons">
+				<paper-button raised id="submit_login">Submit</paper-button>
+			</div>
+		</paper-dialog>
+	</template>
+</body>

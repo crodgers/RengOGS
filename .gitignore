@@ -1,0 +1,4 @@
+.gitattributes
+node_modules/
+bower_components/
+.env
