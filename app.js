@@ -33,8 +33,7 @@ initPassport = require('./config/passport/init');
 initPassport(passport);
 app.use('/', require('./app/routes')(passport));
 
-app.use("/public", express.static(__dirname + "/public"));
-app.use("/bower_components", express.static(__dirname + "/bower_components"));
+app.use(express.static(__dirname + "/public"));
 
 var server = app.listen(process.env.PORT || 5000, function() {
 	console.log('Running on port %s', process.env.PORT || 5000);

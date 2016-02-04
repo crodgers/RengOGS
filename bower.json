@@ -1,5 +1,5 @@
 {
-  "name": "Notify.gs",
+  "name": "polymer-starter-kit",
   "private": true,
   "dependencies": {
     "polymer": "Polymer/polymer#^1.1.0",
