@@ -4,8 +4,8 @@
   "description": "A web app that notifies the user when another user is playing on OGS",
   "main": "app.js",
   "scripts": {
-    "test": "mocha",
-    "start": "node bin/run"
+    "test": "./node_modules/mocha/bin/mocha",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
@@ -25,11 +25,13 @@
     "morgan": "^1.6.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
+    "request": "^2.69.0",
     "socket.io": "^1.4.4",
     "socket.io-client": "^1.4.4"
   },
   "devDependencies": {
     "chai": "^3.4.1",
+    "mocha": "^2.4.5",
     "node-mocks-http": "^1.5.1"
   }
 }
