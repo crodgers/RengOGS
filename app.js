@@ -7,7 +7,7 @@ var MongoStore = require('connect-mongodb-session')(session);
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-mongoose.connect(process.env.MONGOLAB_URL);
+mongoose.connect(process.env.MONGOLAB_URI);
 
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({
@@ -19,7 +19,7 @@ app.set('view engine', 'ejs');
 
 app.use(session({
 	store: new MongoStore({
-		uri: process.env.MONGOLAB_URL,
+		uri: process.env.MONGOLAB_URI,
 	}),
 	secret: process.env.SESSION_SECRET,
 	resave: false,
