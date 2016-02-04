@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha",
-    "start": "node app.js"
+    "start": "node app.js",
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "engines": {
     "node": "0.10.x"
@@ -15,6 +16,7 @@
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.14.2",
+    "bower": "^1.7.7",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^1.1.0",
     "connect-mongodb-session": "^1.1.0",
