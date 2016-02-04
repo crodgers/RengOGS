@@ -6,11 +6,9 @@ var passport = require('passport');
 var MongoStore = require('connect-mongodb-session')(session);
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var morgan = require("morgan");
 
 mongoose.connect(process.env.MONGOLAB_URL);
 
-app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({
 	extended: true
@@ -27,10 +25,13 @@ app.use(session({
 	resave: false,
 	saveUninitialized: false
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', require('./app/routes.js'));
+initPassport = require('./config/passport/init');
+initPassport(passport);
+app.use('/', require('./app/routes')(passport));
 
 app.use(express.static(__dirname + "/public"));
 

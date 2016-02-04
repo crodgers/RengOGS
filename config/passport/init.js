@@ -1,6 +1,6 @@
-var User = require('../app/models/user');
+var User = require('../../app/models/user');
 var login = require('./login');
-// var login = require('./signup');
+// // var signup = require('./signup');
 
 module.exports = function(passport) {
 
@@ -18,7 +18,6 @@ module.exports = function(passport) {
             done(err, user);
         });
     });
-
     login(passport);
     // signup(passport);
 }
