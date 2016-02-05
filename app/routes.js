@@ -12,7 +12,6 @@ var isAuthenticated = function (req, res, next) {
 
 module.exports = function(passport) {
 	router.get('/', function(req, res) {
-		console.log("req.session.username: " + req.session.username);
 		if (req.session.username) {
 			res.redirect("/home");
 		}

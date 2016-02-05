@@ -49,12 +49,11 @@
 <body>
 	<template is="dom-bind" id="app_tmpl">
 		<paper-toolbar>
-		<span class="toolbar_title">Notify.gs</span>
+		<span class="toolbar_title">Notify.gs - <%= title%></span>
 		<span class="spacer"></span>
 			<paper-button raised data-dialog="animated" id="login_button">Login</paper-button>
 		</paper-toolbar>
 		<div class="welcomeText">
-			<h1><%= title%></h1>
 			<h1>Welcome <%= username%></h1>
 			<p>This app will send you push notifications from OGS.</p>
 		</div>
