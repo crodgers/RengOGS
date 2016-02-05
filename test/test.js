@@ -5,7 +5,7 @@ var passport = require('passport');
 
 //need a passport instance to use the router
 passport.initialize();
-initPassport = require('../config/passport/init');
+initPassport = require('../passport/init');
 initPassport(passport);
 
 function buildRes() {

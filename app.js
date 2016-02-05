@@ -29,7 +29,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-initPassport = require('./config/passport/init');
+initPassport = require('./passport/init');
 initPassport(passport);
 app.use('/', require('./app/routes')(passport));
 

@@ -1,4 +1,4 @@
-var User = require('../../app/models/user');
+var User = require('../app/models/user');
 var login = require('./login');
 // // var signup = require('./signup');
 

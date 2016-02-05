@@ -2,7 +2,7 @@ var LocalStrategy = require('passport-local').Strategy;
 var querystring = require('querystring');
 var request = require('request');
 var http = require('http');
-var User = require('../../app/models/user');
+var User = require('../app/models/user');
 
 /**
 Passport strategy for handling local logins
