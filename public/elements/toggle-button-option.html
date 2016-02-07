@@ -1,0 +1,46 @@
+<link rel="import" href="/bower_components/polymer/polymer.html">
+<link rel="import" href="/bower_components/paper-toggle-button/paper-toggle-button.html">
+<link rel="import" href="/bower_components/paper-material/paper-material.html">
+<link rel="import" href="/bower_components/iron-flex-layout/classes/iron-flex-layout.html">
+
+<dom-module id="toggle-button-option">
+	<template>
+		<style>
+			paper-material {
+				width: 40%;
+				height: 30px;
+			}
+
+			.optionText {
+				padding-top: 5px;
+				padding-left: 10px;
+			}
+		</style>
+		<paper-material class="layout horizontal" elevation="2">
+			<span class="optionText">{{optionName}}</span>
+			<span class="flex"></span>
+			<paper-toggle-button></paper-toggle-button>
+		</paper-material>
+	</template>
+</dom-module>
+
+	<script>
+	Polymer({
+		is: "toggle-button-option",
+
+		properties: {
+			optionName: {
+				type: String, 
+				value: "This is a default value"
+			}
+		},
+
+		listeners: {
+			'change': "toggleOption"
+		},
+
+		toggleOption: function(e) {
+			console.log(e.srcElement.checked);
+		}
+	});
+	</script>

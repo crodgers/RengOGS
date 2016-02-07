@@ -1,21 +1,22 @@
-<link rel="import" href="/bower_components/paper-toolbar/paper-toolbar.html">
-	<link rel="import" href="/bower_components/paper-material/paper-material.html">
+<DOCTYPE html>
+
+<head>
+	<link rel="import" href="/bower_components/paper-toolbar/paper-toolbar.html">
 	<link rel="import" href="/bower_components/paper-dialog/paper-dialog.html">
-	<link rel="import" href="/bower_components/paper-input/paper-input.html">
 	<link rel="import" href="/bower_components/iron-form/iron-form.html">
 	<link rel="import" href="/bower_components/neon-animation/neon-animations.html">
-	<link rel="import" href="/bower_components/paper-button/paper-button.html">
 	<link rel="import" href="/bower_components/paper-icon-button/paper-icon-button.html">
 	<link rel="import" href="/bower_components/iron-icons/iron-icons.html">
+	<link rel="import" href="/public/elements/toggle-button-option.html">
 
-    <link rel="stylesheet" type="text/css" href="/public/styles/styles.css">
+	<link rel="stylesheet" type="text/css" href="/public/styles/styles.css">
 
 	<title><%= title %></title>
 
 	<style is="custom-style">
 		paper-toolbar {
-			--paper-toolbar-background: #673AB7
-;		}
+			--paper-toolbar-background: #673AB7;
+		}
 
 		.spacer {
 			@apply(--layout-flex);
@@ -47,26 +48,20 @@
 </head>
 
 <body>
-	<template is="dom-bind" id="app_tmpl">
-		<paper-toolbar>
-		<span class="toolbar_title">Notify.gs - <%= title%></span>
-		<span class="spacer"></span>
-			<paper-button raised data-dialog="animated" id="login_button">Login</paper-button>
-		</paper-toolbar>
-		<div class="welcomeText">
-			<h1>Welcome <%= username%></h1>
-			<p>This app will send you push notifications from OGS.</p>
-		</div>
-		<paper-dialog id="index_login_dialog" entry-animation="scale-up-animation"
-		 exit-animation="fade-out-animation" with-backdrop>
-			<h2>Login</h2>
-			<form action="/login" method="post" accept-charset="utf-8">
-			<paper-input id="paper_username" name="username" label="OGS Username"></paper-input>
-			<paper-input id="paper_password" name="password" label="OGS application password" type="password"></paper-input>
-			</form>
-			<div class="buttons">
-				<paper-button type="submit" onclick="submit_hidden_form(event)" raised id="submtib_login">Submit</paper-button>
-			</div>
-		</paper-dialog>
-	</template>
+<template is="dom-bind" id="app_tmpl">
+	<paper-toolbar>
+	<span class="toolbar_title">Notify.gs - <%= title%></span>
+	<span class="spacer"></span>
+	<paper-icon-button icon="info" id="info_button"></paper-icon-button>
+	</paper-toolbar>
+	<div class="welcomeText">
+		<h1>Welcome <%= username%></h1>
+		<p>This app will send you push notifications from OGS</p>
+	</div>
+	<toggle-button-option option-name="Receive push notifications"></toggle-button-option>
+	<paper-dialog id="info_dialog" entry-animation="scale-up-animation"
+	 exit-animation="fade-out-animation" with-backdrop>
+		<h2>Some info goes here</h2>
+	</paper-dialog>
+</template>
 </body>
