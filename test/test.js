@@ -35,7 +35,7 @@ describe('login route', function() {
 		var res = buildRes();
 		var req = http_mocks.createRequest({
 			method: "POST",
-			username: "crodgers",
+			username: "SooperSekrit",
 			password: process.env.TEST_PASSWORD,
 			url: "/login"
 		});
@@ -45,6 +45,25 @@ describe('login route', function() {
 			expect(req).to.have.property('username');
 			expect(req).to.have.property('access_token');
 			expect(req).to.have.property('refresh_token');
+		});
+
+		app_router(passport).handle(req, res, function() {
+			done();
+		});
+	});
+});
+
+describe('not authenticated', function() {
+	it('redirects to root if not authenticated', function(done) {
+		var res = buildRes();
+		var req = http_mocks.createRequest({
+			method: "GET",
+			username: "SooperSekrit",
+			url: "/home"
+		});
+
+		res.on('end', function() {
+			expect(res.statusCode).to.equal(307);
 		});
 
 		app_router(passport).handle(req, res, function() {
